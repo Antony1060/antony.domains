@@ -1,7 +1,6 @@
 {
-  "name": "Domains",
+  "name": "domains",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
