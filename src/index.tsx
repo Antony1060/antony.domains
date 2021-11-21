@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    body {
+        background-color: #464646;
+        color: white;
+    }
 `
 
 ReactDOM.render(
