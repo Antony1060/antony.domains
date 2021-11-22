@@ -132,6 +132,15 @@ const Tooltip = styled.div`
     z-index: 2;
 `
 
+const Footer = styled.div`
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+`
+
 const TooltipedSpan: FC<{ tooltip: string }> = ({ tooltip }) => (
     <span>
         <Tooltip>{tooltip}</Tooltip>
@@ -175,6 +184,9 @@ const App = () => {
                 :
                     <h1>Loading...</h1>
                 }
+                <Footer>
+                    Verison {process.env.COMMIT_REF ?? 'development'}
+                </Footer>
             </ContentContainer>
         </PageContainer>
     )

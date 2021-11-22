@@ -14,6 +14,7 @@
     "start": "parcel src/index.html --port 3000",
     "prebuild": "rm -rf dist/",
     "build": "parcel build src/index.html",
+    "predeploy": "yarn build",
     "deploy": "netlify deploy --prod"
   },
   "devDependencies": {
