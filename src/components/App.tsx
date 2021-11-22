@@ -138,7 +138,17 @@ const Footer = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+`
+
+const Version = styled.a`
+    text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        text-decoration: underline;
+    }
 `
 
 const TooltipedSpan: FC<{ tooltip: string }> = ({ tooltip }) => (
@@ -185,7 +195,9 @@ const App = () => {
                     <h1>Loading...</h1>
                 }
                 <Footer>
-                    Verison {process.env.COMMIT_REF?.substring(0, 7) ?? 'development'}
+                    <Version href={process.env.REPOSITORY_URL ?? '#'}>
+                        Verison {process.env.COMMIT_REF?.substring(0, 7) ?? 'development'}
+                    </Version>
                 </Footer>
             </ContentContainer>
         </PageContainer>
