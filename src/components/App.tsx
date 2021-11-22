@@ -152,7 +152,7 @@ const App = () => {
     const [ lastUpdated, setLastUpdated ] = useState("");
 
     // if these domains exist, they will be displayed in this order
-    const priority = ["antony.red", "antony.cloud", "antony.contact", "antony.domains", "antony.cash", "fuckcors.app"];
+    const priority = ["antony.red", "antony.cloud", "antony.contact", "antony.wiki", "antony.domains", "antony.cash", "fuckcors.app"];
 
     useEffect(() => {
         axios.get("https://get.antony.domains").then(({ data: { lastUpdatedFormat, domains } }: { data: ApiResponse }) => {
