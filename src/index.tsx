@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
         background-color: #464646;
         color: white;
     }
+
+    body, html {
+        overflow-x: hidden;
+    }
 `
 
 ReactDOM.render(
