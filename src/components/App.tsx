@@ -31,6 +31,7 @@ const ContentContainer = styled.div`
     max-width: 100vw;
     gap: 2rem;
     padding: 4rem;
+    text-align: center;
 `
 
 const DomainContainer = styled.a`
@@ -192,7 +193,7 @@ const App = () => {
                 {domains.length ?
                     domains.map(domain => <Domain key={domain.name} href={`https://${domain.name}`} status={domain.status} target="_blank">{domain.name}</Domain>)
                 :
-                    <h1>Loading...</h1>
+                    <h1 style={{ flexBasis: "100%" }}>Loading...</h1>
                 }
                 <Footer>
                     <Version href={process.env.REPOSITORY_URL ?? '#'}>
