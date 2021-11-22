@@ -135,6 +135,7 @@ const Tooltip = styled.div`
 
 const Footer = styled.div`
     flex-grow: 1;
+    flex-basis: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
