@@ -7,6 +7,13 @@ type CloudflareZone = {
     status: string,
 }
 
+type ApiResponse = {
+    status: number,
+    lastUpdated: number,
+    lastUpdatedFormat: string,
+    domains: CloudflareZone[]
+}
+
 const PageContainer = styled.div`
     display: flex;
     width: 100%;
@@ -133,18 +140,20 @@ const TooltipedSpan: FC<{ tooltip: string }> = ({ tooltip }) => (
 
 const App = () => {
     const [ domains, setDomains ] = useState<CloudflareZone[]>([]);
+    const [ lastUpdated, setLastUpdated ] = useState("");
 
     // if these domains exist, they will be displayed in this order
     const priority = ["antony.red", "antony.cloud", "antony.contact", "antony.domains", "antony.cash", "fuckcors.app"];
 
     useEffect(() => {
-        axios.get("https://get.antony.domains").then(({ data: { domains } }: { data: { domains: CloudflareZone[] } }) => {
+        axios.get("https://get.antony.domains").then(({ data: { lastUpdatedFormat, domains } }: { data: ApiResponse }) => {
             // adds every zones in priority first
             const final: CloudflareZone[] = priority.map(domain => domains.find(z => z.name === domain)).filter(domain => domain) as CloudflareZone[];
             // add every other zone
             final.push(...domains.filter(domain => !final.find(z => z === domain)));
 
             setDomains(final);
+            setLastUpdated(lastUpdatedFormat)
         });
     }, [])
 
@@ -154,6 +163,7 @@ const App = () => {
                 <Header>
                     <span style={{ fontSize: "2rem" }}>My Domains</span>
                     <span>This list is automatically updated</span>
+                    {lastUpdated && <span style={{ color: "rgba(255, 255, 255, 0.6)" }}>Last updated {lastUpdated}</span>}
                     <StatusExplanations>
                         <TooltipedSpan tooltip="Domain is registered and content is accessible"></TooltipedSpan>
                         <TooltipedSpan tooltip="Domain is registed but there are issues displaying it's content"></TooltipedSpan>
