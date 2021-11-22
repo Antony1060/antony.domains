@@ -185,7 +185,7 @@ const App = () => {
                     <h1>Loading...</h1>
                 }
                 <Footer>
-                    Verison {process.env.COMMIT_REF ?? 'development'}
+                    Verison {process.env.COMMIT_REF?.substring(0, 7) ?? 'development'}
                 </Footer>
             </ContentContainer>
         </PageContainer>
