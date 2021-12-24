@@ -171,7 +171,7 @@ const DomainTable = () => {
     return (
         <DomainsContainer>
             <Header>
-                <span style={{ fontSize: "2rem" }}>My Domains</span>
+                <span style={{ fontSize: "2rem" }}>My Domains {domains.length && `(${domains.length})`}</span>
                 <span>This list is automatically updated</span>
                 {lastUpdated && <span style={{ color: "rgba(255, 255, 255, 0.6)" }}>Last updated {lastUpdated}</span>}
                 <StatusExplanations>
