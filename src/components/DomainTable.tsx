@@ -28,7 +28,7 @@ const DomainContainer = styled.a`
     position: relative;
     flex-basis: 40%;
     display: flex;
-    background-color: #2e2e2e;
+    background-color: #171e2b;
     height: 4rem;
     width: fit-content;
     min-width: 20rem;
