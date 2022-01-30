@@ -186,7 +186,7 @@ const DomainTable = () => {
                 <h1 style={{ flexBasis: "100%" }}>Loading...</h1>
             }
             <Footer>
-                <Version href={process.env.REPOSITORY_URL ?? '#'}>
+                <Version href={process.env.REPOSITORY_URL ?? '#'} target="_blank">
                     Version {process.env.COMMIT_REF?.substring(0, 7) ?? 'development'}
                 </Version>
             </Footer>
