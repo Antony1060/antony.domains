@@ -15,8 +15,7 @@
         "prebuild": "rm -rf dist/",
         "build": "parcel build src/index.html",
         "predeploy": "yarn build",
-        "deploy": "netlify deploy --prod",
-        "lint": "eslint -c .eslintrc.json --ext .ts ./src"
+        "deploy": "netlify deploy --prod"
     },
     "devDependencies": {
         "@types/react": "^17.0.36",
