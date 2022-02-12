@@ -79,7 +79,7 @@ const Navbar = () => {
                     ~/domains
                 </Logo>
                 <Links>
-                    <Link text="Home" href="https://antony.red" />
+                    <Link text="Resume" href="https://antony.wiki" />
                     <Link text="Blog" href="https://antony.cloud" />
                     <Link text="Contact" href="https://antony.contact" />
                     <Link text="Domains" href="https://antony.domains" />
