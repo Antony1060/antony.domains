@@ -36,9 +36,13 @@ const Links = styled.div`
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
+
+    @media (max-width: 500px) {
+        gap: 1rem;
+    }
 `
 
-const LinkContainer = styled.a`
+const LinkContainer = styled.a<{ $hideOnPortrait: boolean }>`
     text-decoration: none;
     color: gray;
 
@@ -53,6 +57,12 @@ const LinkContainer = styled.a`
     &:hover span:nth-child(2) {
         color: white;
     }
+
+    ${p => p.$hideOnPortrait ? `
+        @media (max-width: 550px) {
+            display: none;
+        }
+    ` : ""}
 `
 
 const Divider = styled.div`
@@ -61,9 +71,9 @@ const Divider = styled.div`
     background: linear-gradient(0.25turn, #0A0D13, #f0f0f0 10%, #f0f0f0 90%, #0A0D13);
 `
 
-const Link = ({ text, href }: { text: string, href: string }) => {
+const Link = ({ text, href, hideOnPortrait = false }: { text: string, href: string, hideOnPortrait?: boolean }) => {
     return (
-        <LinkContainer href={href}>
+        <LinkContainer href={href} $hideOnPortrait={hideOnPortrait}>
             <span>./</span>
             <span>{text}</span>
         </LinkContainer>
@@ -81,9 +91,7 @@ const Navbar = () => {
                 <Links>
                     <Link text="Resume" href="https://antony.wiki" />
                     <Link text="Blog" href="https://antony.cloud" />
-                    <Link text="Contact" href="https://antony.contact" />
-                    <Link text="Domains" href="https://antony.domains" />
-                    <Link text="Donate" href="https://antony.cash" />
+                    <Link text="Contact" href="https://antony.contact" hideOnPortrait />
                 </Links>
             </NavbarContent>
             <Divider />
